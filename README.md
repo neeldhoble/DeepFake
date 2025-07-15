@@ -131,9 +131,5 @@ This project is licensed under the MIT License. See `LICENSE` file for more info
 
 Developed as part of an academic and practical initiative to ensure **trustworthy and ethical media usage** across platforms.
 
----
 
-## 🙋 Want to Contribute?
-
-Pull requests and issues are welcome! Let's build a safer digital world together.
 
