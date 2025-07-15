@@ -40,7 +40,7 @@ Deepfakes have become a major threat — used to spread misinformation, conduct 
 ## 💡 Use Cases
 
 - 📰 **News Websites** – Prevent fake video/image uploads.
-- 📱 **Social Media Platforms** – Block deepfake celebrity or revenge porn content.
+- 📱 **Social Media Platforms** – Block deepfake celebrity.
 - 📞 **Live Interviews** – Prevent identity spoofing.
 - 🕵️ **Law Enforcement** – Validate evidence authenticity in legal cases.
 
