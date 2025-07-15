@@ -1,158 +1,139 @@
-# DeepFake 🎭
+# 🔒 TrustChain: Deepfake Detection Firewall
 
-A research and engineering project for generating realistic deepfake videos using advanced deep learning techniques.
-
----
-
-## 📘 Table of Contents
-
-- [About](#about)  
-- [Features](#features)  
-- [🏗️ Architecture](#architecture)  
-- [Getting Started](#getting-started)  
-  - [Requirements](#requirements)  
-  - [Installation](#installation)  
-- [Usage](#usage)  
-- [Models](#models)  
-- [Results & Examples](#results--examples)  
-- [Contributing](#contributing)  
-- [License](#license)  
+> **AI-Powered Real-Time Deepfake Detection System for Ethical Media Uploads**
 
 ---
 
-## About
+## 📌 Project Overview
 
-DeepFake is a Python-based framework for creating high-quality deepfake videos. Powered by GANs and face-swapping algorithms, it allows users to swap faces between videos or synthesize realistic facial animations.
-
----
-
-## Features
-
-- Face detection & alignment  
-- Encoder–decoder based face swapping  
-- GAN-based fine-tuning for skin tone & lighting consistency  
-- Audio-driven facial expressions (optional)  
-- CLI for streamlined workflow  
+**TrustChain** is an AI-powered middleware system designed to intercept and analyze media uploads (images/videos) to **detect and block deepfakes in real-time**. It serves as a trust layer for platforms like news websites, social media, and legal institutions, ensuring that fake content never reaches the public eye.
 
 ---
 
-## 🏗️ Architecture
+## 🎯 Why TrustChain?
 
-```
-[Input Video A] → [Face Detection & Alignment] → [Face Encoder]  
-                             ↓                       
-        [Reference Image B] → [Face Encoder & Decoder] → [Swapped Face]  
-                             ↓  
-                   [GAN Fine-Tuning & Compositing] → [Output Video]
-```
+Deepfakes have become a major threat — used to spread misinformation, conduct scams, and defame individuals. TrustChain prevents this by:
+- Detecting deepfakes **before** they are published.
+- Acting as a **firewall** between users and media platforms.
+- Supporting **legal, ethical, and secure** media sharing practices.
 
 ---
 
-## Getting Started
+## 🛠️ How It Works
 
-### Requirements
-
-- Python 3.8+  
-- `torch`, `torchvision`  
-- `opencv-python`, `dlib`  
-- `ffmpeg` CLI installed  
-
-You may also want `tqdm`, `numpy`, and `scipy`.
+1. **Media Upload** – A user uploads an image/video.
+2. **Interception** – The system preprocesses the media (resize, convert).
+3. **Detection** – AI models (e.g., XceptionNet) analyze the file.
+4. **Decision** – Returns a result: `Authentic` or `Deepfake` + confidence score.
+5. **Storage** – Logs upload details, verdicts, and metadata to MongoDB.
+6. **Admin Review** – Optional dashboard for moderators to inspect flagged content.
 
 ---
 
-### Installation
+## 🧪 What It Detects
 
-1. Clone the repo:
-   ```bash
-   git clone https://github.com/neeldhoble/DeepFake.git
-   cd DeepFake
-   ```
-
-2. Create and activate a virtual environment:
-   ```bash
-   python3 -m venv venv
-   source venv/bin/activate   # On Windows: venv\Scripts\activate
-   ```
-
-3. Install dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-4. Ensure `ffmpeg` and `dlib` have been installed system-wide.
+- **Images** – Alterations, face swaps, forgeries.
+- **Videos** – Temporal inconsistencies, AI-generated facial animations.
 
 ---
 
-## Usage
+## 💡 Use Cases
 
-### Preprocessing
-Detect and align faces:
-```bash
-python src/preprocess.py \
-  --input path/to/video.mp4 \
-  --output data/aligned
-```
-
-### Training
-Train the face-swap encoder–decoder:
-```bash
-python src/train_encoder.py \
-  --aligned-dir data/aligned \
-  --output models/encoder.pth
-```
-
-Fine-tune using GAN:
-```bash
-python src/train_gan.py \
-  --encoder models/encoder.pth \
-  --output models/gan.pth
-```
-
-### Inference
-Perform face swap:
-```bash
-python src/inference.py \
-  --source-video path/to/source.mp4 \
-  --target-image path/to/face.jpg \
-  --encoder models/encoder.pth \
-  --gan models/gan.pth \
-  --output output/swapped.mp4
-```
+- 📰 **News Websites** – Prevent fake video/image uploads.
+- 📱 **Social Media Platforms** – Block deepfake celebrity or revenge porn content.
+- 📞 **Live Interviews** – Prevent identity spoofing.
+- 🕵️ **Law Enforcement** – Validate evidence authenticity in legal cases.
 
 ---
 
-## Models
+## ⭐ Key Features
 
-You can download pre-trained models here:
-
-- [encoder.pth](link-to-release)
-- [gan.pth](link-to-release)
-
-Place them in `models/` before running inference.
-
----
-
-## Results & Examples
-
-Include sample results here. You might add before/after frames or short video clips with output file links.  
-*(Screenshots or GIFs are highly recommended!)*
+| Feature | Description |
+|--------|-------------|
+| 🎭 Deepfake Detection | Detects fake faces in images/videos using AI |
+| ⚡ Real-Time Filtering | Blocks fake content instantly |
+| 🔌 REST API | Easy to integrate into any app or platform |
+| 🗂️ Logs & Metadata | Stores upload time, verdict, and file info |
+| 📊 Dashboard (Optional) | Admin UI for reviewing uploads |
+| 📦 Format Support | Accepts JPG, PNG, MP4, etc. |
+| ☁️ Scalable | Deployable via Docker to cloud platforms |
 
 ---
 
-## Contributing
+## 🧰 Tech Stack
 
-Contributions, bug reports, and feature requests welcome!  
-To contribute:
-1. Fork the repository  
-2. Create a branch (`git checkout -b feature/...`)  
-3. Make changes & add tests/examples  
-4. Submit a Pull Request with clear description  
+### 🚀 Backend
+- **Language**: Python
+- **Framework**: FastAPI
+- **Models**: XceptionNet, MesoNet, CapsuleNet
+- **Database**: MongoDB (NoSQL)
+- **Deployment**: Docker, AWS, Render
 
-Please ensure code style consistency and proper documentation.
+### 💻 Frontend (Optional)
+- **Framework**: React.js or Streamlit
+- **Design**: Tailwind CSS, Bootstrap
+
+### 🎥 Media & AI Tools
+- OpenCV, FFmpeg – Video/Image handling
+- PyTorch, TensorFlow – Model training/inference
 
 ---
 
-## License
+## 🧠 Datasets Used
 
-This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
+- [FaceForensics++](https://github.com/ondyari/FaceForensics)
+- [Celeb-DF](https://github.com/yuezunli/Celeb-DF)
+- [DeepfakeTIMIT](https://github.com/ondyari/FaceForensics/tree/master/dataset/DeepFakeTIMIT)
+- [100K Faces](https://generated.photos/)
+
+---
+
+## ✅ Unique Selling Points (USPs)
+
+- Stops deepfakes **before** they go public.
+- Real-time detection unlike traditional forensic tools.
+- Developer-friendly API with scalable deployment options.
+- Great for **journalism, security, law enforcement**.
+- Designed for real-world applications, not just research.
+
+---
+
+## 📅 Development Workflow
+
+1. 📋 Planning – Define goals, tools, datasets.
+2. 🧠 Model Setup – Train/test deepfake detectors.
+3. 🖼️ Preprocessing – Resize, format image/video data.
+4. 🛠️ Backend – Build FastAPI endpoints and inference logic.
+5. 🧑‍💻 Optional UI – Upload dashboard and result viewer.
+6. 🧾 Logging – Save all metadata to MongoDB.
+7. 🧪 Testing – Accuracy tests across datasets and file types.
+8. 🚀 Deployment – Containerize and host with Docker.
+9. 📚 Documentation – Reports, API docs, diagrams, demo video.
+
+---
+
+## 🔮 Future Enhancements
+
+- 🎙️ Audio Deepfake Detection
+- 🧾 Blockchain-based Evidence Storage
+- 🧩 Chrome Extension for Browser-Based Detection
+- 🤖 Upgrade to Vision Transformers or multimodal models
+
+---
+
+## 📜 License
+
+This project is licensed under the MIT License. See `LICENSE` file for more info.
+
+---
+
+## 📢 Acknowledgment
+
+Developed as part of an academic and practical initiative to ensure **trustworthy and ethical media usage** across platforms.
+
+---
+
+## 🙋 Want to Contribute?
+
+Pull requests and issues are welcome! Let's build a safer digital world together.
+
