@@ -126,16 +126,6 @@ DeepFake/
 
 ---
 
-## Contributing
-
-Contributions are welcome! Please:
-1. Fork the repo
-2. Create a feature branch (`git checkout -b feature-xyz`)
-3. Commit your changes (`git commit -m "Add XYZ"`)
-4. Push and open a Pull Request
-
----
-
 ## License
 
 This project is licensed under the **MIT License** – see the [LICENSE](LICENSE) file for details.
